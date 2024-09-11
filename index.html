@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Title of the page -->
-    <title>Telemedicine Portal</title>
-    
-    <!-- Meta tag for responsive display -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta tag for character set -->
     <meta charset="UTF-8">
-    
-    <!-- Link to external CSS file (Optional for styling) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Portal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header section -->
+    <!-- Header Section -->
     <header>
-        <h1>Welcome to the Telemedicine Portal</h1>
+        <img src="logo.png" alt="Telemedicine Logo" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Consultation</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Main Heading -->
-    <h2>Register for Virtual Consultation</h2>
+    <!-- Main Content with Sidebar -->
+    <div class="container">
+        <!-- Main Content Area -->
+        <main>
+            <h1>Welcome to the Telemedicine Portal</h1>
+            <p>Access quality healthcare from the comfort of your home. Schedule your virtual appointment today!</p>
+            
+            <h2>Register for Virtual Consultation</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
 
-    <!-- Introductory paragraph -->
-    <p>
-        Access quality healthcare from the comfort of your home. 
-        Please fill in the registration form below to schedule your virtual appointment.
-    </p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
 
-    <!-- Basic registration form -->
-    <form action="#" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+                <input type="submit" value="Register">
+            </form>
 
-        <label for="phone">Phone Number:</label><br>
-        <input type="tel" id="phone" name="phone" required><br><br>
+            <h3>Patient Information</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ian Ndiga</td>
+                        <td>ianndiga0@gmail.com</td>
+                        <td>+254115947353</td>
+                    </tr>
+                    <tr>
+                        <td>Nelson Mathew</td>
+                        <td>nelson@gmail.com</td>
+                        <td>+254722569048</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <input type="submit" value="Register">
-    </form>
+            <h3>Virtual Healthcare</h3>
+            <img src="telemedicine.jpg" alt="Telemedicine Image" width="500" height="300">
+        </main>
 
-    <!-- Table displaying common user information -->
-    <h3>Patient Information</h3>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Ian Ndiga</td>
-                <td>ianndiga0@gmail.com</td>
-                <td>+254115947353</td>
-            </tr>
-            <tr>
-                <td>Nelson Mathew</td>
-                <td>nelson@gmail.com</td>
-                <td>+254722569048</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <h3>Additional Links</h3>
+            <ul>
+                <li><a href="#">How it Works</a></li>
+                <li><a href="#">Our Doctors</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
 
-    <!-- Image section -->
-    <h3>Virtual Healthcare</h3>
-    <img src="/home/ian/Downloads/african-american-sick-woman-patient-lying-bed-discussing-medication-treatment-with-remote-physician-doctor-online-videocall-meeting-conference-telehealth-call-tablet-screen.jpg" alt="Telemedicine Image" width="500" height="300">
+            <h3>Search</h3>
+            <input type="search" placeholder="Search here...">
+        </aside>
+    </div>
 
-    <!-- External link to Google -->
-    <p>For more information, visit <a href="https://google.com" target="_blank">Google</a>.</p>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Telemedicine Portal. All rights reserved.</p>
+        <div class="social">
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">Instagram</a>
+        </div>
+        <p>Contact us: info@telemedicine.com | +254 115 947 353</p>
+    </footer>
 
 </body>
 </html>
