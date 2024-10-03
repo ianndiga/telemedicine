@@ -5,8 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/home/ian/Downloads/login telemedicine.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            color: #333;
+        }
+
         .error {
             color: red;
+            font-size: 0.9em;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        #formSummary {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3fe;
+            border: 1px solid #b3d4fc;
+            display: none;
         }
     </style>
 </head>
@@ -14,18 +47,76 @@
 
 <h2>Login</h2>
 <br>
-            <form id="login">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" required><span class="error" id="loginEmailError"></span><br><br>
-        
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" required><span class="error" id="loginPasswordError"></span><br><br>
-        
-                <button type="submit">Login</button>
-                <button onclick="location.href='index.html'">Back</button>
+<form id="login">
+    <label for="loginEmail">Email:</label>
+    <input type="email" id="loginEmail" required>
+    <span class="error" id="loginEmailError"></span><br><br>
 
-            </form>
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" required>
+    <span class="error" id="loginPasswordError"></span><br><br>
 
-        </body>
-        </html>
+    <button type="submit">Login</button>
+    <button type="button" onclick="location.href='index.html'">Back</button>
+</form>
+
+<div id="formSummary"></div>
+
+<script>
+    document.getElementById('login').addEventListener('submit', function(event) {
+        event.preventDefault();
+
         
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const emailError = document.getElementById('loginEmailError');
+        const passwordError = document.getElementById('loginPasswordError');
+        let valid = true;
+
+        
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
+       
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            emailError.textContent = 'Please enter a valid email.';
+            valid = false;
+        }
+
+        
+        if (password.length < 6) {
+            passwordError.textContent = 'Password must be at least 6 characters.';
+            valid = false;
+        }
+
+        
+        if (valid) {
+            const formData = {
+                email: email,
+                password: password
+            };
+            displayFormSummary(formData);
+            alert('Form submitted successfully!');
+        }
+    });
+
+   
+    function displayFormSummary(data) {
+        const summary = document.getElementById('formSummary');
+        summary.style.display = 'block';
+        summary.innerHTML = `<h3>Form Summary:</h3>
+                             <p><strong>Email:</strong> ${data.email}</p>
+                             <p><strong>Password:</strong> ${data.password}</p>`;
+    }
+
+    
+    document.getElementById('loginEmail').addEventListener('input', function() {
+        const email = this.value;
+        const emailError = document.getElementById('loginEmailError');
+        emailError.textContent = emailPattern.test(email) ? '' : 'Invalid email format.';
+    });
+</script>
+
+</body>
+</html>
